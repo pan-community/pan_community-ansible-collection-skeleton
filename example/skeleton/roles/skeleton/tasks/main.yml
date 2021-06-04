@@ -1,2 +1,21 @@
 ---
-# tasks file for skeleton
+- name: Include App Variables
+  include_vars: vars/main.yml
+
+- name: Retrieve PAN-OS Facts
+  panos_facts:
+
+- name: Set panos_release fact
+  set_fact:
+    panos_release: "panos-{{ ansible_net_version.split('.')[0:2] | join('.') }}"
+
+- block:
+    - name: "Checking Role Compatibility"
+      debug:
+        msg: "Current Software Major version is NOT currently supported by this role"
+
+    - meta: end_play
+  when: panos_release not in supported_versions
+
+- include_tasks: "{{ panos_release }}.yml"
+

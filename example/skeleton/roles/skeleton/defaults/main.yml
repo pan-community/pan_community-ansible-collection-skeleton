@@ -1,2 +1,6 @@
 ---
-# defaults file for skeleton
+# set default for panos_type_cmd
+module_defaults:
+  panos_type_cmd:
+    provider: '{{ provider }}'
+    cmd: set
