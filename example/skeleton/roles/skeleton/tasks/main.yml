@@ -9,8 +9,9 @@
   set_fact:
     panos_release: "panos-{{ ansible_net_version.split('.')[0:2] | join('.') }}"
 
-- block:
-    - name: "Checking Role Compatibility"
+- name: Check Role Compatibility
+  block:
+    - name: "Alert Role Compatibility"
       debug:
         msg: "Current Software Major version is NOT currently supported by this role"
 
