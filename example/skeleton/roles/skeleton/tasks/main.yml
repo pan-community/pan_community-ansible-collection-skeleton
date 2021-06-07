@@ -3,7 +3,7 @@
   include_vars: vars/main.yml
 
 - name: Retrieve PAN-OS Facts
-  panos_facts:
+  paloaltonetworks.panos.panos_facts:
 
 - name: Set panos_release fact
   set_fact:
@@ -15,7 +15,9 @@
       debug:
         msg: "Current Software Major version is NOT currently supported by this role"
 
-    - meta: end_play
+    - name: End playbook
+      meta: end_play
+
   when: panos_release not in supported_versions
 
 - include_tasks: "{{ panos_release }}.yml"
