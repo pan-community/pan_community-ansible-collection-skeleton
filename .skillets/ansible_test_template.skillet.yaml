@@ -16,6 +16,11 @@ snippets:
       ---
       - hosts: all
         connection: local
+        vars:
+          provider:
+            ip_address: change.me
+            username: change.me
+            password: change.this.secret
         roles:
           - {{ role_name }}
 

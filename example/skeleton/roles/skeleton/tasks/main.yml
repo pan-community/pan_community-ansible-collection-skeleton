@@ -4,6 +4,7 @@
 
 - name: Retrieve PAN-OS Facts
   paloaltonetworks.panos.panos_facts:
+    provider: "{{ provider }}"
 
 - name: Set panos_release fact
   set_fact:
