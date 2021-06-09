@@ -27,7 +27,7 @@ snippets:
             password: change.this.secret
           {% for v in variable_list -%}
           {{ v.name }}: {{ v.default }}
-          {% endfor %}
+          {% endfor -%}
 
         roles:
           - {{ role_name }}
