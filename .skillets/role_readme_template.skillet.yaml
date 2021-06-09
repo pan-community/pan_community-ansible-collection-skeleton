@@ -44,9 +44,16 @@ snippets:
       Role Variables
       --------------
 
+      {%- if variable_list | length %}
+      {%- for v in variable_list -%}
+      * {{ v.name }} - {{ v.description }} - Default: {{ v.default }}
+      {%- endfor %}
+      {% else %}
+
       FIXME - This section should be updated if you've allocated any variables in the various XML elements or XPaths
       in the task.
 
+      {% endif %}
       Dependencies
       ------------
 
