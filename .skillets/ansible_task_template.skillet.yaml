@@ -19,6 +19,6 @@ snippets:
         paloaltonetworks.panos.panos_type_cmd:
           xpath: |
             {{ snippet.xpath }}
-          element: |
+          element: -|
             {{ snippet.element | minimal_indent(6) }}
       {% endfor %}
