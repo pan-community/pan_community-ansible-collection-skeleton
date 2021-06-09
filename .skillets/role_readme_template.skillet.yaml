@@ -76,7 +76,7 @@ snippets:
                 password: YOUR_PASSWORD
               {% for v in variable_list -%}
               {{ v.name }}: {{ v.default }}
-              {%- endfor %}
+              {% endfor %}
               other_role_vars: other role variables as required
 
             roles:
