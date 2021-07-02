@@ -79,6 +79,10 @@ snippets:
               {% endfor -%}
               other_role_vars: other role variables as required
 
+            collections:
+              - {{ namespace }}.{{ role_name }}
+
+
             roles:
               - {{ role_name }}
 
