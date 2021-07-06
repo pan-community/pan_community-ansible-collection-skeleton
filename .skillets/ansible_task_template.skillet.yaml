@@ -17,7 +17,7 @@ snippets:
       {% for snippet in snippets -%}
       - name: {{ snippet.name }}
         paloaltonetworks.panos.panos_type_cmd:
-          provider: {{ '{{' }} provider {{ '}}' }}
+          provider: {{ '"{{' }} provider {{ '}}"' }}
           cmd: set
           xpath: |
             {{ snippet.xpath }}

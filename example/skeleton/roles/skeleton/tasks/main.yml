@@ -6,9 +6,13 @@
   paloaltonetworks.panos.panos_facts:
     provider: "{{ provider }}"
 
+- name: Set panos_major_version fact
+  set_fact:
+    panos_major_version: "{{ ansible_net_version.split('.')[0:2] | join('.') }}"
+
 - name: Set panos_release fact
   set_fact:
-    panos_release: "panos-{{ ansible_net_version.split('.')[0:2] | join('.') }}"
+    panos_release: "panos-{{ panos_major_version }}"
 
 - name: Check Role Compatibility
   block:
@@ -19,7 +23,7 @@
     - name: End playbook
       meta: end_play
 
-  when: panos_release not in supported_versions
+  when: panos_major_version not in supported_versions
 
 - include_tasks: "{{ panos_release }}.yml"
 
